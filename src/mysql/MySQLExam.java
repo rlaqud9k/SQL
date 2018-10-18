@@ -31,8 +31,8 @@ public class MySQLExam extends MySQL {
 	
 	//검색메소드
 	public List SelectSQL()throws Exception{
-		List<BoardBean> list = new ArrayList();
-		String query="select*form tbl_board";
+		List list = new ArrayList();
+		String query="select * form tbl_board";
 		pstmt= MyConn.prepareStatement(query);
 		rs = pstmt.executeQuery();
 		while(rs.next()) {
@@ -43,13 +43,19 @@ public class MySQLExam extends MySQL {
 			bb.setContent(rs.getString("content"));
 			bb.setRegdate(rs.getString("regdate"));
 			bb.setRedcnt(rs.getInt("redcnt"));
-			
 			list.add(bb);
 		}
 		return list;
 	}
 	//수정메소드
-	
+	public void updateSQL(int no,String subject, String content) throws Exception{
+		String query= "update tbl_board set subject=?, content =? where no=?";
+		pstmt = MyConn.prepareStatement(query);
+		pstmt.setString(1, subject);
+		pstmt.setString(2, content);
+		pstmt.setInt(3, no);
+		pstmt.executeUpdate();
+	}
 	//삭제메소드
 	
 	
