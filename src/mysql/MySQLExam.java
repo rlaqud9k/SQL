@@ -57,7 +57,12 @@ public class MySQLExam extends MySQL {
 		pstmt.executeUpdate();
 	}
 	//삭제메소드
-	
+	public void deleteSQL(int no)throws Exception{
+		String query="delete from tbl_board where no=?";
+		pstmt = MyConn.prepareStatement(query);
+		pstmt.setInt(1, no);
+		pstmt.executeUpdate();
+	}
 	
 @Override
 public void cleanup() throws Exception {

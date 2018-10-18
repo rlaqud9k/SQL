@@ -13,17 +13,17 @@ public class MySQLRun {
 //		else
 //			System.out.println("실패");
 		
-//		List list = my.SelectSQL();
-//		BoardBean bb;
-//		for(int x=0;x<list.size();x++) {
-//			bb =(BoardBean)list.get(x);
-//			System.out.println(bb.no+bb.name+bb.subjcet+bb.content+bb.regdate+bb.redcnt);
-//		}
+		List list = my.SelectSQL();
+		BoardBean bb;
+		for(int x=0;x<list.size();x++) {
+			bb =(BoardBean)list.get(x);
+			System.out.println(bb.no+bb.name+bb.subjcet+bb.content+bb.regdate+bb.redcnt);
+		}
 		
 		//수정
-		int no =1;//수정값 받은것
-		my.updateSQL(no,"제목수정","내용수정");
-		
+//		int no =1;//수정값 받은것
+//		my.updateSQL(no,"제목수정","내용수정");
+//		my.deleteSQL(1);
 				my.takeDown();
 	}
 
